@@ -1,6 +1,6 @@
 let toggleNavStatus = false;
 
-let toggleNav = function () {
+const toggleNav = function () {
     let getSideBar = document.querySelector(".nav-sidebar");
     let getSideBarUl = document.querySelector(".nav-sidebar ul");
     let getSideBarUlSpan = document.querySelectorAll(".nav-sidebar ul span");
@@ -48,28 +48,29 @@ const changeColorGray = function () {
     bodyWhole.style.background = "#f1f1f1"
 };
 
-const changeColorRed = function () {
-    bodyWhole.style.background = "red"
-};
 
-const changeColorOrange = function () {
-    bodyWhole.style.background = "orange"
-};
+const eraseRed = () => {
 
-const changeColorPurple = function () {
-    bodyWhole.style.background = "purple"
-};
+    toggleNav();
+    bodyWhole.style.background = "red";
 
-const changeColorGreen = function () {
-    bodyWhole.style.background = "green"
-};
+}
 
-backgroundGray.addEventListener("click", changeColorGray);
+backgroundGray.addEventListener("click", changeColorGray); //all method including onlick in the html
 
-backgroundRed.addEventListener("click", changeColorRed);
+backgroundRed.addEventListener("click", eraseRed); // with this method I will have to create a function for each color
 
-backgroundOrange.addEventListener("click", changeColorOrange);
+backgroundOrange.addEventListener("click", () => { // this is the ideal method. I just put a function and I change the color inside the function
+    toggleNav();
+    bodyWhole.style.background = "orange";
+});
 
-backgroundPurple.addEventListener("click", changeColorPurple);
+backgroundPurple.addEventListener("click", () => {
+    toggleNav();
+    bodyWhole.style.background = "purple";
+});
 
-backgroundGreen.addEventListener("click", changeColorGreen);
+backgroundGreen.addEventListener("click", () => {
+    toggleNav();
+    bodyWhole.style.background = "green";
+});
